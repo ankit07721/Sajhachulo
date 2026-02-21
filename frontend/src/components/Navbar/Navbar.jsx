@@ -49,7 +49,9 @@
 import React, { useState } from "react";
 import { assets } from "../../assets/assets";
 import "./Navbar.css";
-const Navbar = () => {
+// import Login from "../../pages/Login/Loginnow";
+import { Link } from "react-router-dom";
+const Navbar = ({ setShowLogin }) => {
     const [Menu, setMenu] = useState("Home")
     return (
         <nav className="navbar  flex justify-between w-full sticky  shadow-sm ">
@@ -66,21 +68,16 @@ const Navbar = () => {
 
             {/* Menu */}
             <ul className="hidden md:flex items-center gap-8 font-medium text-gray-700 cursor-pointer">
-                <li onClick={() => setMenu("")} className={Menu === "home" ? "active" : ""}>
-                    Home
-                </li>
-                <li onClick={() => setMenu("menu")} className={Menu === "menu" ? "active" : ""}>
-                    Menu
-                </li>
-                <li onClick={() => setMenu("shop")} className={Menu === "shop" ? "active" : ""}>
-                    Shop
-                </li>
-                <li onClick={() => setMenu("about")} className={Menu === "about" ? "active" : ""}>
-                    About Us
-                </li>
-                <li onClick={() => setMenu("contact")} className={Menu === "contact" ? "active" : ""}>
-                    Contact Us
-                </li>
+                <Link to="/" onClick={() => setMenu("")} className={Menu === "home" ? "active" : ""}>Home</Link>
+
+                <Link to="/browsechefs" onClick={() => setMenu("BrowseChefs")} className={Menu === "BrowseChefs" ? "active" : ""}>Browse Chefs</Link>
+
+
+                <Link to="/mealplans" onClick={() => setMenu("MealPlans")} className={Menu === "MealPlans" ? "active" : ""}>Meal Plans</Link>
+                <Link to="/tiffinsubscription" onClick={() => setMenu("TiffinSubscription")} className={Menu === "TiffinSubscription" ? "active" : ""}>Tiffin Subscription</Link>
+                <Link to="/becomechef" onClick={() => setMenu("BecomeChef")} className={Menu === "BecomeChef" ? "active" : ""}>Become a chef</Link>
+                <Link to="/hygieneverification" onClick={() => setMenu("hygiene")} className={Menu === "hygiene" ? "active" : ""}>Hygiene & Verification</Link>
+
             </ul>
             <div className="flex gap-12">
 
@@ -107,8 +104,9 @@ const Navbar = () => {
                     </div>
 
                     {/* Button */}
-                    <button className=" w-24 h-8 border border-black text-black rounded-md hover:bg-orange-500 hover:text-white transition font-medium">
-                        Sign In
+                    <button onClick={() => setShowLogin(true)} className=" w-24 h-8 border border-black text-black rounded-md hover:bg-orange-500 hover:text-white transition font-medium">
+
+                        Login
                     </button>
                 </div>
             </div>
