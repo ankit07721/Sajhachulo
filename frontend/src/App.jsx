@@ -9,6 +9,8 @@ import Loginpopup from './components/Loginpopup/Loginpopup'
 import HygieneVerification from './pages/hygieneverification/Hygieneverification'
 import BecomeChefPage from './components/becomeachef/BecomeChefPage'
 import TiffinSubscription from './pages/tiffinsubscription/TiffinSubscription'
+import BrowseChefs from './pages/browsechef/BrowseChefs'
+import MealPlans from './pages/mealplan/MealPlans'
 const App = () => {
 
   const [showlogin, setShowLogin] = useState(false)
@@ -25,6 +27,8 @@ const App = () => {
           <Route path='/hygieneverification' element={<HygieneVerification />} />
           <Route path='/becomechef' element={<BecomeChefPage />} />
           <Route path='/tiffinsubscription' element={<TiffinSubscription />} />
+          <Route path='/browsechefs' element={<BrowseChefs />} />
+          <Route path='/mealplans' element={<MealPlans />} />
         </Routes>
       </div>
       {/* <Footer /> */}
